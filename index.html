@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Twitch Chatter</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+	<body onload="clearinputs()">
+		<div id="header">twitch chatter<p>how to use: enter the name of a twitch.tv channel. empty clears the frame.<hr><button onClick="clearinputs()" id="floater">clear all chats</button></div>		
+		<div id="container">
+		<span><p>
+		<table><tr><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></tr><tr><td>
+				<input type="text" id="inputbox0" value=""></td><td>
+				<input type="text" id="inputbox1" value=""></td><td>
+				<input type="text" id="inputbox2" value=""></td><td>
+				<input type="text" id="inputbox3" value=""></td><td>
+		</tr></table></span><p>
+		<span>
+		<table><tr><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></td><td>
+		<iframe src="" id="content" scrolling="no" ></iframe></tr><br><tr><td>
+				<input type="text" id="inputbox4" value=""></td><td>
+				<input type="text" id="inputbox5" value=""></td><td>
+				<input type="text" id="inputbox6" value=""></td><td>
+				<input type="text" id="inputbox7" value=""></td><td>
+		</tr></table></span></div>
+		</span>
+		</div>
+	</body>
+</html>
+<script>
+var chatpath = new Array();
+var boxset = new Array();
+function updatechat() {
+				for (var i=0; i<8; i++) { //get the current values in the text, store in the chatpath array
+								chatpath[i] = document.getElementById("inputbox"+i).value;
+				if (!chatpath[i].match(/\S/)) 	{  //if the field is blank, blank the page
+				frames[i].location = "about:blank";
+				boxset[i]="about:blank";
+//				if (frames[i].location!="http://twitch.tv/chat/embed?channel="+chatpath+"&popout_chat=true") {
+				}
+				else {
+				if (chatpath[i]!=boxset[i]) {
+				frames[i].location = "http://twitch.tv/chat/embed?channel="+chatpath[i]+"&popout_chat=true"; //set the iframe
+				boxset[i]=chatpath[i];
+				}
+				}
+}
+}
+//catch Enter key events
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text")) {updatechat();}
+}
+//clear the inputboxes
+function clearinputs() {
+	for (var i=0; i<8; i++) {
+	document.getElementById("inputbox"+i).value = "";
+//	$("#inputbox"+i).val("");
+}
+	updatechat();
+}
+document.onkeypress = stopRKey;
+</script>
