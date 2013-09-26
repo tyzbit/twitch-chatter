@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background:#111;
+	color:#888;
+}
+
+#header{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	text-align:center;
+	text-indent:35px;
+	margin: 0 auto;
+	width:800px;
+	margin-bottom:0px;
+}
+
+hr{
+	margin: 20px;
+	border:none;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #333;
+}
+
+p{
+	color:#555;
+	text-align:center;
+	font-size:10px;
+	margin-left: 20px;
+	margin-bottom: -20px;
+	margin-top:-5px;
+}
+
+a{
+	color:#444;
+}
+#container{
+	margin: 0 auto;
+	width:95%;
+	border:2px solid #333;
+	border-radius:20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	font-family:Verdana, Geneva, sans-serif;
+	padding:2%;
+}
+
+#content{
+	width:100%;
+	height:380px;
+	border:1px solid #333;
+	margin-bottom:-15px;
+	margin-top:0 auto;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+td{
+	padding:10px;
+	text-align:center;
+}
+table{
+	width:101%;
+	margin-bottom:-30px;
+}
+#floater{
+	position:fixed;
+	right:20px;
+	top:5px;
+	border:3px solid #333;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+input{
+	border-radius:5px;
+	width:60%;
+}
+button{
+	background:#666;
+}
